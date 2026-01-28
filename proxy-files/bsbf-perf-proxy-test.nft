@@ -1,0 +1,12 @@
+table ip bsbf-proxy-test {
+	chain proxy_prerouting {
+		type filter hook prerouting priority mangle; policy accept;
+		fib daddr type != local meta l4proto { tcp, udp } tproxy ip to 127.0.0.1:12345 meta mark set 0x00000001
+	}
+
+	chain proxy_output {
+		type route hook output priority mangle; policy accept;
+		meta mark 0x00000002 return
+		oifname != "lo" meta l4proto { tcp, udp } meta mark set 0x00000001
+	}
+}

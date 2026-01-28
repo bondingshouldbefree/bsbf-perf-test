@@ -1,0 +1,25 @@
+{
+  "log": {
+    "level": "error"
+  },
+  "inbounds": [
+    {
+      "type": "vless",
+      "listen": "0.0.0.0",
+      "listen_port": 32768,
+      "routing_mark": 512,
+      "tcp_multi_path": true,
+      "users": [
+        {
+          "uuid": "b0ed9d8b-d939-4761-b94d-41bff1ab025d"
+        }
+      ]
+    }
+  ],
+  "outbounds": [
+    {
+      "type": "direct",
+      "routing_mark": 1024
+    }
+  ]
+}

@@ -1,0 +1,20 @@
+{
+  "inbounds": [
+    {
+      "type": "tproxy",
+      "listen": "0.0.0.0",
+      "listen_port": 12345
+    }
+  ],
+  "outbounds": [
+    {
+      "type": "vless",
+      "tag": "vless",
+      "server": "10.0.0.1",
+      "server_port": 32768,
+      "uuid": "b0ed9d8b-d939-4761-b94d-41bff1ab025d",
+      "tcp_multi_path": true,
+      "routing_mark": 2
+    }
+  ]
+}
