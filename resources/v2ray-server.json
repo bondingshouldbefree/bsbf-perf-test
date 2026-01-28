@@ -1,0 +1,33 @@
+{
+  "inbounds": [
+    {
+      "listen": "0.0.0.0",
+      "port": 32768,
+      "protocol": "vless",
+      "settings": {
+        "clients": [
+            {
+                "id": "b0ed9d8b-d939-4761-b94d-41bff1ab025d"
+            }
+        ],
+        "decryption":"none"
+      },
+      "streamSettings": {
+        "sockopt": {
+          "mark": 512,
+          "mptcp": true
+        }
+      }
+    }
+  ],
+  "outbounds": [
+    {
+      "protocol": "freedom",
+      "streamSettings": {
+        "sockopt": {
+          "mark": 1024
+        }
+      }
+    }
+  ]
+}

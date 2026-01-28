@@ -1,0 +1,20 @@
+{
+  "inbounds": [
+    {
+      "type": "tun",
+      "address": [ "172.18.0.1/30" ],
+      "auto_route": true,
+      "auto_redirect": true,
+      "auto_redirect_output_mark": "0x2"
+    }
+  ],
+  "outbounds": [
+    {
+      "type": "vless",
+      "server": "10.0.0.1",
+      "server_port": 32768,
+      "uuid": "b0ed9d8b-d939-4761-b94d-41bff1ab025d",
+      "tcp_multi_path": true
+    }
+  ]
+}
