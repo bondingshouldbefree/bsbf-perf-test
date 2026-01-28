@@ -1,0 +1,27 @@
+{
+  "inbounds": [
+    {
+      "protocol": "tun",
+      "settings": {
+        "name": "tun0"
+      }
+    }
+  ],
+  "outbounds": [
+    {
+      "protocol": "vless",
+      "settings": {
+        "address": "10.0.0.1",
+        "port": 32768,
+        "id": "b0ed9d8b-d939-4761-b94d-41bff1ab025d",
+        "encryption": "none"
+      },
+      "streamSettings": {
+        "sockopt": {
+          "mark": 2,
+          "tcpMptcp": true
+        }
+      }
+    }
+  ]
+}
