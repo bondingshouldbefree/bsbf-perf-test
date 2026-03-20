@@ -106,19 +106,8 @@ ip netns exec client ip mp e add 10.0.3.1 subflow dev veth2
 ip netns exec client ip mp l set subflows 8
 ip netns exec server ip mp l set subflows 8
 
-# Run the proxy programme on the server and client.
-ip netns exec server xray run -c resources/xray-server.json &
-PROXY_SERVER_PID=$!
-ip netns exec client xray run -c resources/xray-client-tproxy.json &
-PROXY_CLIENT_PID=$!
-
-# Load the nftables rules and configure policy routing for tproxy.
-ip netns exec client nft -f resources/bsbf-perf-proxy-test.nft
-ip netns exec client ip rule add fwmark 1 table 100 priority 0
-ip netns exec client ip r add local default dev lo table 100
-
 # Run nc on server.
-ip netns exec server nc -l 5000 &
+ip netns exec server mptcpize run nc -l 5000 &
 NC_PID=$!
 
 # Start MPTCP monitor.
@@ -141,4 +130,4 @@ while true; do
 	echo $index
 	sleep 1
 	index=$((index + 1))
-done | ip netns exec client nc 10.0.0.1 5000
+done | ip netns exec client mptcpize run nc 10.0.0.1 5000
