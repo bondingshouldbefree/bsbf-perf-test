@@ -1,0 +1,18 @@
+node:
+  identity:
+    nsec: "nsec1x2unefmx8u8nc0apr8vt6kh6vsral3qn8kjneah5yze5g0uk59esgrkf4x"
+  control:
+    enabled: false
+
+tun:
+  enabled: true
+  name: "fips0"
+  mtu: 1500
+
+transports:
+  ethernet:
+    interface: "veth0"
+    discovery: true
+    announce: true
+    auto_connect: true
+    accept_connections: true
